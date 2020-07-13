@@ -31,7 +31,7 @@ This project is intended for implementing a serverless computing with AWS
 
 # Reference Screenshots #
 
-![Screenshots](reference_screenshots/Deploying_in_master.png)
+![Screenshots] (reference_screenshots/Deploying_in_master.png)
 
 ![reference_screenshots](reference_screenshots/Deployment_Pipelines.png)
 
