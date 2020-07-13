@@ -1,0 +1,22 @@
+#Code Deploy in AWS
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+      nodejs : 12
+    pre_build:
+    commands:
+      - pip install virtualenv
+      - virtualenv venv
+      - source venv/bin/activate
+      - pip install -r requirements.txt
+      - npm install
+      - npm install serverless -g
+  build:
+    commands:
+      - sls deploy
+artifacts:
+  files:
+    - '**/*'

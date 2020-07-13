@@ -1,0 +1,102 @@
+service: suriya-aws-serverless
+
+custom:
+  project: 'SERVERLESS-API'
+  stage: ${opt:stage, self:provider.stage}
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: eu-central-1
+  timeout: 10
+
+package:
+  individually: true
+  exclude:
+    - ./**
+
+functions:
+  fibonacci-version_1:
+    handler: application/version_1/fibonacci/lambda_function.lambda_handler
+    name: ${self:custom.project}-${self:custom.stage}-fibonacci-version1
+    package:
+      include:
+        - application/version_1/fibonacci/**
+        - application/utilities/**
+    tracing: true
+    events:
+      - http:
+          method: get
+          path: apigateway/version_1/fibonacci
+          cors: true
+
+  fibonacci-version_2:
+    handler: application/version_2/fibonacci/lambda_function.lambda_handler
+    name: ${self:custom.project}-${self:custom.stage}-fibonacci-version2
+    package:
+      include:
+        - application/version_2/fibonacci/**
+        - application/utilities/**
+    tracing: true
+    events:
+      - http:
+          method: get
+          path: apigateway/version_2/fibonacci
+          cors: true
+
+  factorial-version_1:
+    handler: application/version_1/factorial/lambda_function.lambda_handler
+    name: ${self:custom.project}-${self:custom.stage}-factorial-version1
+    package:
+      include:
+        - application/version_1/factorial/**
+        - application/utilities/**
+    tracing: true
+    events:
+      - http:
+          method: get
+          path: apigateway/version_1/factorial
+          cors: true
+
+  factorial-version_2:
+    handler: application/version_2/factorial/lambda_function.lambda_handler
+    name: ${self:custom.project}-${self:custom.stage}-factorial-version2
+    package:
+      include:
+        - application/version_2/factorial/**
+        - application/utilities/**
+    tracing: true
+    events:
+      - http:
+          method: get
+          path: apigateway/version_2/factorial
+          cors: true
+
+  ackermann-version_1:
+    handler: application/version_1/ackermann/lambda_function.lambda_handler
+    name: ${self:custom.project}-${self:custom.stage}-ackermann-version1
+    package:
+      include:
+        - application/version_1/ackermann/**
+        - application/utilities/**
+    tracing: true
+    events:
+      - http:
+          method: get
+          path: apigateway/version_1/ackermann
+          cors: true
+
+  ackermann-version_2:
+    handler: application/version_2/ackermann/lambda_function.lambda_handler
+    name: ${self:custom.project}-${self:custom.stage}-ackermann-version2
+    package:
+      include:
+        - application/version_2/ackermann/**
+        - application/utilities/**
+    tracing: true
+    events:
+      - http:
+          method: get
+          path: apigateway/version_2/ackermann
+          cors: true
+

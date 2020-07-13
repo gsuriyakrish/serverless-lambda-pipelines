@@ -1,0 +1,51 @@
+definitions:
+  steps:
+    - step: &build_test
+        name: Build_And_Test
+        image: python:3.7.3
+        script:
+          - pip install virtualenv
+          - virtualenv venv
+          - source venv/bin/activate
+          - pip install -r requirements.txt
+          - nosetests -sv --with-xunit --xunit-file=nosetests.xml
+        artifacts:
+          - nosetests.xml
+
+    - step: &deploy_dev
+        image: nikolaik/python-nodejs:latest
+        name: Deploy_To_Development_Environment
+        deployment: Development
+        script:
+            - npm install serverless -g
+            - serverless config credentials --provider aws --key ${AWS_KEY} --secret ${AWS_SECRET}
+            - sls deploy --stage dev
+
+    - step: &deploy_stage
+        image: nikolaik/python-nodejs:latest
+        name: Deploy_To_Stage_Environment
+        deployment: Staging
+        script:
+          - npm install serverless -g
+          - serverless config credentials --provider aws --key ${AWS_KEY} --secret ${AWS_SECRET}
+          - sls deploy --stage stage
+
+    - step: &deploy_prod
+        image: nikolaik/python-nodejs:latest
+        name: Deploy_To_Production_Environment
+        deployment: Production
+        script:
+          - npm install serverless -g
+          - serverless config credentials --provider aws --key ${AWS_KEY} --secret ${AWS_SECRET}
+          - sls deploy --stage prod
+
+pipelines:
+  branches:
+     master:
+       - step: *build_test
+       - step: *deploy_stage
+       - step: *deploy_prod
+     development:
+         - step: *build_test
+         - step: *deploy_dev
+
