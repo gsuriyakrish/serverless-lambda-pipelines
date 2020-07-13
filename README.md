@@ -3,11 +3,11 @@ This project is intended for implementing a serverless computing with AWS
 
 # Description #
  1. The project uses [serverless](https://serverless.com) architecture with single service multiple AWS Lambda functions.
- 2. Maintaining a multiple versions. \
- 3. CI/CD with [Bitbucket pipelines](https://bitbucket.org/product/features/pipelines). \
- 4. Two stages (dev, stage, prod) with two versions of code in each to differentiate the lambda consumption. \
- 5. UnitTest with nose (Easy and fastest implementation). \
- 6. buildspec.yml is available for AWSCodeBuild (Just a base reference for this project - **Not Implemented**). \
+ 2. Maintaining a multiple versions.
+ 3. CI/CD with [Bitbucket pipelines](https://bitbucket.org/product/features/pipelines).
+ 4. Two stages (dev, stage, prod) with two versions of code in each to differentiate the lambda consumption.
+ 5. UnitTest with nose (Easy and fastest implementation).
+ 6. buildspec.yml is available for AWSCodeBuild (Just a base reference for this project - **Not Implemented**).
  7. serverless.yml for deploying to AWS with serverless framework.
 
 # Run the project #
@@ -31,7 +31,7 @@ This project is intended for implementing a serverless computing with AWS
 
 # Reference Screenshots #
 
-![reference_screenshots](reference_screenshots/Deploying_in_master.png)
+![Screenshots](reference_screenshots/Deploying_in_master.png)
 
 ![reference_screenshots](reference_screenshots/Deployment_Pipelines.png)
 
