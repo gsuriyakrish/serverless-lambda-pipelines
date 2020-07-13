@@ -31,21 +31,21 @@ This project is intended for implementing a serverless computing with AWS
 
 # Reference Screenshots #
 
-![Screenshots](reference_screenshots/Deploying_in_master.png)
+![screenshots](reference_screenshots/Deploying_in_master.png)
 
-![reference_screenshots](reference_screenshots/Deployment_Pipelines.png)
+![screenshots](reference_screenshots/Deployment_Pipelines.png)
 
-![reference_screenshots](reference_screenshots/Deployment_Stage.png)
+![screenshots](reference_screenshots/Deployment_Stage.png)
 
-![reference_screenshots](reference_screenshots/Cloud_Formation_using_SLS.png)
+![screenshots](reference_screenshots/Cloud_Formation_using_SLS.png)
 
-![reference_screenshots](reference_screenshots/Lambda.png)
+![screenshots](reference_screenshots/Lambda.png)
 
-![reference_screenshots](reference_screenshots/API_Gateway.png)
+![screenshots](reference_screenshots/API_Gateway.png)
 
-![reference_screenshots](reference_screenshots/API_Gateway_Methods.png)
+![screenshots](reference_screenshots/API_Gateway_Methods.png)
 
-![reference_screenshots](reference_screenshots/Dashboard.png)
+![screenshots](reference_screenshots/Dashboard.png)
 
 
 
